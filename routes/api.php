@@ -21,5 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/register',[userController::class,"register"]);
 Route::post('/login',[userController::class,"login"]);
 Route::middleware('auth:sanctum')->get("/users",[userController::class,"getUsers"]);
-Route::middleware('auth:sanctum')->get('/loadconversation/{my_id}/{partner_id}', [userController::class,"getConversation"]);
+Route::middleware('auth:sanctum')->get('/loadconversation/{group_id}', [userController::class,"getConversation"]);
 Route::post('/sender',[userController::class,"sender"]);
+Route::middleware('auth:sanctum')->get('/makegroup/{my_id}/{partner_id}',[userController::class,"makeGroup"]);
+Route::post('/conversation/{my_id}',[userController::class,"loadGroups"]);
+Route::post('/realgroup',[userController::class,"createRealGroup"]);

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("name");
             $table->string("description",600)->nullable();
+            $table->boolean("realgroup");
             $table->timestamps();
         });
     }

@@ -8,11 +8,23 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Group;
+use App\Models\Message;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+
+    function group(){
+        return $this->belongsToMany(Group::class);
+    }
+    function groupuser(){
+        return $this->hasMany(GroupUser::class);
+    }
+    function message(){
+        return $this->hasMany(Message::class);
+    }
     /**
      * The attributes that are mass assignable.
      *

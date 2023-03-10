@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get("/users",[userController::class,"getUsers"]);
 Route::get('/loadconversation/{my_id}/{partner_id}', [userController::class,"getConversation"]);
 Route::get('/sender',[userController::class,"sender"]);
+Route::get('/makegroup/{my_id}/{partner_id}',[userController::class,"makeGroup"]);
+Route::get('/conversation/{my_id}',[userController::class,"loadGroups"]);
