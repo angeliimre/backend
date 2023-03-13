@@ -26,3 +26,4 @@ Route::post('/sender',[userController::class,"sender"]);
 Route::middleware('auth:sanctum')->get('/makegroup/{my_id}/{partner_id}',[userController::class,"makeGroup"]);
 Route::post('/conversation/{my_id}',[userController::class,"loadGroups"]);
 Route::post('/realgroup',[userController::class,"createRealGroup"]);
+Route::get('/groupname/{group_id}',[userController::class,"groupName"]);

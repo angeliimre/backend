@@ -45,6 +45,10 @@ class userController extends Controller
         $list=User::get();
         return response($list);
     }
+    function groupName($group_id){
+        $name=Group::where("id","=",$group_id)->select("name")->get()->pluck("name")->toarray();
+        return response($name[0]);
+    }
     function getConversation($group_id){
         return response(Message::where("group_id","=",$group_id)->get());
         
@@ -120,7 +124,7 @@ class userController extends Controller
             $groupuser->group_id=$group->id;
             $groupuser->save();
         }
-        return response(count($validated["members"]));
+        return response($group->id);
     }
 
     function loadGroups($my_id){
